@@ -10,27 +10,24 @@ import java.util.List;
 public class UserService {
 
     private List<User> userList = new ArrayList<>();
+    private Long nextIndex = 1L;
 
     public List<User> fetchUsers(){
         return userList;
     }
 
     public List<User> addUser(User user){
-        if (userList.isEmpty()){
-            user.setId(1L);
-            userList.add(user);
-        }
-        else{
-            Long lastId = userList.getLast().getId();
-            Long id = 0L;
-            if (lastId > 0){
-                id = lastId + 1;
-            }else{
-                id = 1L;
-            }
-            user.setId(id);
-            userList.add(user);
-        }
+        user.setId(nextIndex++);
+        userList.add(user);
         return userList;
+    }
+
+    public User fetchUser(Long id){
+        for (User user: userList){
+            if (user.getId().equals(id)){
+                return user;
+            }
+        }
+        return null;
     }
 }
