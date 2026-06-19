@@ -1,12 +1,10 @@
-package com.ecom.ecom_application;
+package com.ecom.ecom_application.services;
 
-import lombok.NoArgsConstructor;
+import com.ecom.ecom_application.models.User;
+import com.ecom.ecom_application.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
